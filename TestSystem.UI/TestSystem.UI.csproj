@@ -1,14 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\TestSystem.Core\TestSystem.Core.csproj" />
     <ProjectReference Include="..\TestSystem.Infrastructure\TestSystem.Infrastructure.csproj" />
+    <ProjectReference Include="..\TestSystem.Steps\TestSystem.Steps.csproj" />
   </ItemGroup>
 
 </Project>
