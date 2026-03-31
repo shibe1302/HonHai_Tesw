@@ -10,24 +10,22 @@ namespace TestSystem.UI
         public Form1()
         {
             InitializeComponent();
+            txtIpAddress.Text = Program.Config.GetString("GlobalVariable", "DUT_IP");
             SetupEngine();
         }
 
         private void SetupEngine()
         {
+            // Đọc timeout từ config thay vì hardcode
+            int pingTimeout = Program.Config.GetInt("GlobalVariable", "DUT_POWERON_TIME", 60);
+
             _engine = new TestEngine(new List<Core.Interfaces.ITestStep>
         {
-            new PingStep(timeoutSec: 30)
-            // Sau này thêm step khác vào đây:
-            // new ConnectDutStep(),
-            // new SfisPreDataStep(),
-            // new SfisSendResultStep(),
+            new PingStep(timeoutSec: pingTimeout)
         });
 
-            // Engine báo status → hiển thị lên UI
             _engine.OnStatusChanged += msg =>
             {
-                // Phải chạy trên UI thread
                 if (InvokeRequired)
                     Invoke(() => UpdateStatus(msg));
                 else
