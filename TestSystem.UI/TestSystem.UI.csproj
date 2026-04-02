@@ -14,4 +14,10 @@
     <ProjectReference Include="..\TestSystem.Steps\TestSystem.Steps.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="kiến_trúc_c#_cho_chương_trình_test_với_tính_linh_hoạt_cao.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
